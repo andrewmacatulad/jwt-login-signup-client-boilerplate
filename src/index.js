@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "react-redux-toastr/lib/css/react-redux-toastr.min.css";
+import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import ReduxToastr from "react-redux-toastr";
+// import ReduxToastr from "react-redux-toastr";
+import { ToastContainer } from "react-toastify";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
@@ -31,7 +34,8 @@ const theme = createMuiTheme({
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <ReduxToastr
+      <ToastContainer />
+      {/* <ReduxToastr
         timeOut={4000}
         newestOnTop={false}
         preventDuplicates
@@ -40,7 +44,7 @@ ReactDOM.render(
         transitionOut="fadeOut"
         progressBar
         closeOnToastrClick
-      />
+      /> */}
       <MuiThemeProvider theme={theme}>
         <App />
       </MuiThemeProvider>

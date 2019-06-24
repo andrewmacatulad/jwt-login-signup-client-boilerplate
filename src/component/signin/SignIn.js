@@ -305,11 +305,11 @@ class SignIn extends Component {
         <Typography>Or</Typography>
         <Divider variant="fullWidth" />
         <Button
-          color="primary"
           className={classes.buttonFb}
-          component={Link}
-          to="/signin"
+          component="a"
+          href="http://localhost:5000/auth/facebook"
           variant="contained"
+          color="primary"
           fullWidth
         >
           <Icon className={clsx(classes.icon, "fab fa-facebook-f")} />
@@ -333,8 +333,8 @@ class SignIn extends Component {
 
         <Button
           className={classes.buttonTwitter}
-          component={Link}
-          to="/signin"
+          component="a"
+          href="http://localhost:5000/auth/twitter"
           variant="contained"
           color="primary"
           fullWidth

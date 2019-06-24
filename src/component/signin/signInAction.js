@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 import {
   asyncActionStart,
@@ -33,11 +34,12 @@ export const signupUser = values => async dispatch => {
       type: SIGNUP_USER,
       payload: res.data
     });
+    toast.success("User successfully created");
     // history.push("/");
     dispatch(asyncActionFinish());
   } catch (error) {
     dispatch(asyncActionError());
-    console.log(error.response.data);
+    toast.error(error.response.data.message);
     dispatch(authError(error.response.data));
   }
 };
@@ -90,9 +92,11 @@ export const loginUser = values => async dispatch => {
     // history.push("/");
 
     dispatch(asyncActionFinish());
+    toast.success("User successfully logged in");
   } catch (error) {
+    toast.error(error.response.data.message);
     dispatch(asyncActionError());
-    console.log(error.response.data);
+
     dispatch(authError(error.response.data));
   }
 };
